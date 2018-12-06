@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('contact', 'Auth\LoginController@contact');
+// Route::get('contact', 'Auth\LoginController@contact');
+Route::get('about', 'PageController@about');
+Route::get('contact', 'PageController@contact');
