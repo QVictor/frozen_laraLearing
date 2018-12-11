@@ -24,4 +24,12 @@
 		{!! Form::close() !!}
 	</div>
 	</div>
+	@if ($errors->any())
+		<ul class="alert alert-danger">
+			@foreach ($errors->all() as $error)
+				<li>{{$error}}</li>
+			@endforeach
+		</ul>
+	@endif
+	{{var_dump($errors)}}
 @endsection

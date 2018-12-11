@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 // Импорт модели
 use Carbon\Carbon;
 use App\Article;
-// use Illuminate\Http\Request;
-use Request;
+use App\Http\Requests\CreateArticleRequest;
+use Illuminate\Http\Request;
+
 // use Symfony\Component\HttpFoundation\Request;
 
 class ArticlesController extends Controller
@@ -31,11 +32,14 @@ class ArticlesController extends Controller
 		return view('articles.create');
 	}															
 
-	// сохранить новую статью
-	public function store()
+	// сохранить новую статью (валидация в скобках)
+	public function store(CreateArticleRequest $request)
 	{
+		// validation without create class
+		// $this->validate($request, ['title' => 'required', 'body' => 'required']);
+		
 		// получить все данные из формы
-		$newArticle = Request::all();
+		$newArticle = $request->all();
 		// $input['published_at'] = Carbon::now();
 		// $article = new Article(['title' => ]);
 		// Article->title = input['title'];
