@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 // Импорт модели
 use Carbon\Carbon;
 use App\Article;
-use App\Http\Requests\CreateArticleRequest;
+use App\Http\Requests\ArticleRequest;
 use Illuminate\Http\Request;
 
 // use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class ArticlesController extends Controller
 	public function show($id)
 	{
 		$article = Article::findOrFail($id);
-		dd($article->published_at);
+		// dd($article->published_at);
 		// dd($article);
 		// if (is_null($article)) {
 		// 	about('404');
@@ -33,7 +33,7 @@ class ArticlesController extends Controller
 	}															
 
 	// сохранить новую статью (валидация в скобках)
-	public function store(CreateArticleRequest $request)
+	public function store(ArticleRequest $request)
 	{
 		// validation without create class
 		// $this->validate($request, ['title' => 'required', 'body' => 'required']);
@@ -49,5 +49,16 @@ class ArticlesController extends Controller
 		
 
 		return redirect('articles');
+	}
+	public function edit($id)
+	{
+		$article = Article::findOrFail($id);
+		return view('articles.edit',compact('article'));
+	}
+	public function update($id, ArticleRequest $request)
+	{
+		$article = Article::findOrFail($id);
+		$article->update($request->all());
+		return redirect('articles');		
 	}
 }
