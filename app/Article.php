@@ -11,7 +11,8 @@ class Article extends Model
 		'title',
 		'body',
 		'published_at',
-		'excerpt'
+		'excerpt',
+		'user_id' /* temporary */
 	];
 	protected $dates = ['published_at'];
 	public function setPublishedАtAttribute($date)
@@ -26,5 +27,9 @@ class Article extends Model
 	public function scopeUnPublished($query)
 	{
 		$query->where('published_at','>',Carbon::now());
+	}
+	public function user()
+	{
+		return $this->belongsTo('App\User');
 	}
 }

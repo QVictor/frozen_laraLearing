@@ -1,4 +1,5 @@
-
+{{-- Temporary --}}
+{!! Form::hidden('user_id', 1) !!}
 {!! Form::label('title', 'title') !!}
 {!! Form::text('title', null, ['class' => 'form-control'])  !!}
 

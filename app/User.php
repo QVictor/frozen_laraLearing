@@ -26,5 +26,10 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
-    ];
+	];
+	// Пользователь может создавать много статей
+	public function articles()
+	{
+		return $this->hasMany('App\Article');
+	}
 }
