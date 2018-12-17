@@ -1,4 +1,6 @@
 @extends('app')
+
+
 @section('content')
 	<h1>Write a New Articles</h1>
 
@@ -6,11 +8,11 @@
 	<div class='form-group'>
 		{{--url in home page--}}
 		{!! Form::open(['url' => 'articles']) !!}
-			@include('form.particlee')
-
-			<div class='form-group'>	
+			{{-- @include('form.particlee') --}}
+			@include('articles.form', ['submitButtonText' => 'Add Article'])
+			{{-- <div class='form-group'>	
 				{!! Form::submit('Ad', ['class' => 'btn btn-primary form-control'])  !!}
-			</div>
+			</div> --}}
 			
 		{!! Form::close() !!}
 	</div>
