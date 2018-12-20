@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class ArticlesController extends Controller
 {
+	// Только зарегистрированным пользователям
+	public function __construct()
+	{
+		$this->middleware('auth', ['except' => 'index']);
+	}
+	
 	public function index()
 	{	
 		/* return \Auth::user()->articles()->get();

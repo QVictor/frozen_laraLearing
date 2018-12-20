@@ -1,5 +1,7 @@
 <?php
 
+// use Symfony\Component\Routing\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,9 +13,20 @@
 |
 */
 
-// Route::get('/', function () {
+
+//   example for middleware
+	// Route::get('about', ['middleware' => 'auth','uses' => 'PageController@about']); 
+	
+//   example for controller
+	// Route::get('contact', 'PageController@contact'); 
+	
+
+
+
+	// Route::get('/', function () {
 //     return view('welcome');
 // });
+
 Route::resource('articles', 'ArticlesController');
 // Route::get('contact', 'Auth\LoginController@contact');
 Route::get('about', 'PageController@about');
@@ -27,3 +40,7 @@ Route::get('users/{user}/articles', 'PageController@user');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('foo', ['middleware' => 'manager', function() {
+	return 'manager';
+}]);
