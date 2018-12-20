@@ -23,3 +23,7 @@ Route::get('users/{user}/articles', 'PageController@user');
 // Route::get('articles/create', 'ArticlesController@create');
 // Route::get('articles/{id}', 'ArticlesController@show');
 // Route::post('articles', 'ArticlesController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
