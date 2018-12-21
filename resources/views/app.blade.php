@@ -9,6 +9,14 @@
 </head>
 <body>
 	<div class="container">
+
+		{{-- information message --}}
+		@if (Session::has('flash_message'))			
+			<div class="alert alert-success">
+				{{ session('flash_message') }}
+			</div>
+		@endif
+
 		@yield('content')
 	</div>
 	@yield('footer')

@@ -25,9 +25,10 @@ class ArticlesController extends Controller
 		
 		return view('articles.index',compact('articles'));
 	}
-	public function show($id)
+	public function show(Article $article)
 	{
-		$article = Article::findOrFail($id);
+		// dd($article);
+		// $article = Article::findOrFail($id);
 		/* dd($article->published_at);
 		dd($article);
 		if (is_null($article)) {
@@ -56,21 +57,22 @@ class ArticlesController extends Controller
 		dd($newArticle);							
 		Article::create($newArticle); */
 
-		$article = new Article($request->all());
-		\Auth::user()->articles; /* collection - all articles */
-		\Auth::user()->articles()->save($article);
-		
 
+		// $article = new Article($request->all());
+		// \Auth::user()->articles; /* collection - all articles */
+		// \Auth::user()->articles()->save($article);
+
+		\Auth::user()->articles()->create($request->all());
+		
+		session()->flash('flash_message','article create');
 		return redirect('articles');
 	}
-	public function edit($id)
+	public function edit(Article $article)
 	{
-		$article = Article::findOrFail($id);
 		return view('articles.edit',compact('article'));
 	}
-	public function update($id, ArticleRequest $request)
+	public function update(Article $article, ArticleRequest $request)
 	{
-		$article = Article::findOrFail($id);
 		$article->update($request->all());
 		return redirect('articles');		
 	}
