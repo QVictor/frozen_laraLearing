@@ -9,16 +9,22 @@
 </head>
 <body>
 	<div class="container">
-
+		@include('flash::message')
 		{{-- information message --}}
-		@if (Session::has('flash_message'))			
+	{{-- 	@if (Session::has('flash_message'))			
 			<div class="alert alert-success">
 				{{ session('flash_message') }}
 			</div>
-		@endif
+		@endif --}}
 
 		@yield('content')
 	</div>
+	<script src="//code.jquery.com/jquery.js"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	<script>
+		$('.alert').not('.alert-important').delay(3000).slideUp(300);
+		// $('#flash-overlay-modal').modal();
+	</script>
 	@yield('footer')
 </body>
 </html>

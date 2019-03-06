@@ -25,6 +25,7 @@ class ArticlesController extends Controller
 		
 		return view('articles.index',compact('articles'));
 	}
+	
 	public function show(Article $article)
 	{
 		// dd($article);
@@ -63,8 +64,9 @@ class ArticlesController extends Controller
 		// \Auth::user()->articles()->save($article);
 
 		\Auth::user()->articles()->create($request->all());
-		
-		session()->flash('flash_message','article create');
+		flash()->success('flash_mes');	
+		// flash()->overlay('flash_message','article');
+		// session()->flash('flash_message',true);
 		return redirect('articles');
 	}
 	public function edit(Article $article)

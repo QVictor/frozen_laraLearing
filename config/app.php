@@ -176,8 +176,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
-    ],
+    ], 
 
     /*
     |--------------------------------------------------------------------------
@@ -229,6 +230,7 @@ return [
 		// 'Html' => Illuminate\Html\HtmlFacade::class,
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
+		'Flash' => Laracasts\Flash\Flash::class,
 
     ],
 
