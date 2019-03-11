@@ -13,8 +13,8 @@
 
 <div class='tags-group'>
 	{{--textfield published_at--}}
-		{!! Form::label('tags', 'Tags') !!}
-		{!! Form::select('tags', $tags, null, ['class' => 'form-control', 'multiple'])  !!}
+		{{-- {!! Form::label('tags', 'Tags') !!}
+		{!! Form::select('tags', $tags, null, ['class' => 'form-control', 'multiple'])  !!} --}}
 </div>
 
 <div class='form-group'>	

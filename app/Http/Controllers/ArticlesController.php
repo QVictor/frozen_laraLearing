@@ -37,8 +37,15 @@ class ArticlesController extends Controller
 		}		 */	
 		return view('articles.show',compact('article'));
 	}
+
+	public function welcome(Article $article)
+	{
+		return view('welcome',compact('article'));
+	}
+
 	public function create()
 	{
+		// $tags = Tag::lists('name');
 		return view('articles.create');
 	}															
 
@@ -78,4 +85,5 @@ class ArticlesController extends Controller
 		$article->update($request->all());
 		return redirect('articles');		
 	}
+
 }

@@ -26,7 +26,7 @@
 	// Route::get('/', function () {
 //     return view('welcome');
 // });
-
+Route::get('welcome', 'ArticlesController@welcome');
 Route::resource('articles', 'ArticlesController');
 // Route::get('contact', 'Auth\LoginController@contact');
 Route::get('about', 'PageController@about');
